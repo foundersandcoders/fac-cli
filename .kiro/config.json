@@ -1,0 +1,101 @@
+{
+  "version": "1.0.0",
+  "project": {
+    "name": "Kiro AI IDE Project",
+    "type": "general",
+    "language": "auto-detect",
+    "framework": "clean-architecture"
+  },
+  "agent_behavior": {
+    "autonomous_mode": true,
+    "context_window": 16000,
+    "multi_file_awareness": true,
+    "proactive_refactoring": true,
+    "test_generation": true,
+    "documentation_generation": true
+  },
+  "hooks": {
+    "on_file_create": [
+      "validate_naming_convention",
+      "generate_initial_tests",
+      "update_documentation_index"
+    ],
+    "on_file_modify": [
+      "run_code_review",
+      "update_tests",
+      "check_breaking_changes",
+      "update_documentation"
+    ],
+    "on_commit": [
+      "run_full_test_suite",
+      "check_security_vulnerabilities",
+      "update_changelog",
+      "validate_conventional_commits"
+    ],
+    "on_pull_request": [
+      "run_integration_tests",
+      "check_performance_impact",
+      "validate_documentation",
+      "security_scan"
+    ]
+  },
+  "steering": {
+    "code_standards_file": ".kiro/steering/code-standards.md",
+    "architecture_patterns": [
+      "clean-architecture",
+      "functional-first",
+      "dependency-injection",
+      "immutable-data"
+    ],
+    "naming_conventions": {
+      "functions": "camelCase",
+      "constants": "UPPER_SNAKE_CASE",
+      "types": "PascalCase",
+      "files": "kebab-case",
+      "directories": "kebab-case"
+    },
+    "test_patterns": {
+      "framework": "auto-detect",
+      "coverage_threshold": 90,
+      "mutation_testing": true,
+      "test_naming": "should_behavior_when_condition"
+    }
+  },
+  "quality_gates": {
+    "test_coverage": 90,
+    "complexity_threshold": 10,
+    "security_scan": true,
+    "performance_check": true,
+    "documentation_completeness": true
+  },
+  "integrations": {
+    "git": {
+      "conventional_commits": true,
+      "branch_protection": true,
+      "pre_commit_hooks": true
+    },
+    "ci_cd": {
+      "platform": "github-actions",
+      "auto_deploy": false,
+      "quality_gates": true
+    },
+    "monitoring": {
+      "error_tracking": true,
+      "performance_monitoring": true,
+      "log_aggregation": true
+    }
+  },
+  "ai_preferences": {
+    "explanation_verbosity": "concise",
+    "code_comments": "minimal",
+    "refactoring_aggressiveness": "moderate",
+    "suggestion_frequency": "on_demand",
+    "learning_mode": true
+  },
+  "workspace": {
+    "auto_save": true,
+    "format_on_save": true,
+    "lint_on_save": true,
+    "organize_imports": true
+  }
+}
